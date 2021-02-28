@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using Xunit;
 
 namespace GradeBook.tests
@@ -20,6 +21,18 @@ namespace GradeBook.tests
             Assert.Equal(85.6,result.Average,1);
             Assert.Equal(90.5,result.High,1);
             Assert.Equal(77.3,result.Low,1);
+        }
+        [Fact]
+        public void GradesAreInCorrectRange()
+        {
+            var book = new Book("Test book");
+            book.AddGrade(105);
+            book.AddGrade(50);
+            book.AddGrade(-5);
+            List<double> grades = book.GetGrades();
+            Assert.DoesNotContain(105,grades);
+            Assert.DoesNotContain(-5,grades);
+            Assert.Contains(50,grades);
         }
         
     }

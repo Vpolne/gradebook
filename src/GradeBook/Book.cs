@@ -10,9 +10,18 @@ namespace GradeBook
             grades = new List<double>();
             Name = name;
         }
+
         public void AddGrade(double grade)
         {
-            grades.Add(grade);
+            if (grade <= 100 && grade >= 0)
+            {
+                grades.Add(grade);
+            } 
+            else
+            {
+                System.Console.WriteLine("Invalid value");
+            }
+            
         }
 
         public Statistics GetStatistics()
@@ -37,6 +46,10 @@ namespace GradeBook
             Console.WriteLine($"Average grade is {result.Average:N1}");
             Console.WriteLine($"The highest grade is {result.High:N1}");
             Console.WriteLine($"The lowest grade is {result.Low:N1}");
+        }
+        public List<double> GetGrades()
+        {
+            return this.grades;
         }
         private List<double> grades;
         public string Name;

@@ -11,7 +11,7 @@ namespace GradeBook
             book.AddGrade(90.2);
             book.AddGrade(99.6);
             book.ShowStatistics();
-            //comment to check commit
+
         }
     }
 }
